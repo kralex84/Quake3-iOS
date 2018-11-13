@@ -9,7 +9,7 @@
 #ifndef bridging_h
 #define bridging_h
 
-#include "ios_glimp.h"
+//#include "ios_glimp.h"
 #include "q_shared.h"
 #include "keycodes.h"
 #include "client.h"

@@ -31,11 +31,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include "../renderercommon/tr_common.h"
 #include "../renderercommon/iqm.h"
 
-#ifdef IOS
-#include "../ios/qgl.h"
-#else
+//#ifdef IOS
+//#include "../ios/qgl.h"
+//#else
 #include "../renderercommon/qgl.h"
-#endif
+//#endif
 
 #define GLE(ret, name, ...) extern name##proc * qgl##name;
 QGL_1_1_PROCS;
