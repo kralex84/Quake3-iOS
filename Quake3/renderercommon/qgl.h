@@ -27,7 +27,8 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #define __QGL_H__
 
 #ifdef IOS
-#    include "ios_glimp.h"
+//#    include "ios_glimp.h"
+#   include <SDL_opengles.h>
 #elif USE_LOCAL_HEADERS
 #	include "SDL_opengl.h"
 #else
@@ -52,6 +53,21 @@ typedef long GLintptrARB;
 typedef long GLsizeiptrARB;
 typedef void *GLhandleARB;
 typedef char GLcharARB;
+typedef double        GLdouble;    /* double precision float */
+typedef double        GLclampd;    /* double precision float in [0,1] */
+enum {
+    IOS_QUADS = 0x10000,
+    GL_BACK_LEFT_DONT_USE=0x0402,
+    GL_BACK_RIGHT_DONT_USE=0x0403,
+    IOS_POLYGON
+};
+#define GL_POLYGON              IOS_POLYGON
+#define GL_QUADS                IOS_QUADS
+#define GL_BACK_LEFT                0x0402
+#define GL_BACK_RIGHT                0x0403
+#define GL_FILL                    0x1B02
+#define GL_NUM_EXTENSIONS                 0x821D
+#define GL_DEPTH_COMPONENT            0x1902
 #endif
 
 extern void (APIENTRYP qglActiveTextureARB) (GLenum texture);

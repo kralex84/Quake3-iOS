@@ -25,11 +25,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include "../qcommon/q_shared.h"
 #include "../renderercommon/tr_public.h"
 
-#ifdef IOS
-#include "../ios/qgl.h"
-#else
+//#ifdef IOS
+//#include "../ios/qgl.h"
+//#else
 #include "qgl.h"
-#endif
+//#endif
 
 typedef enum
 {

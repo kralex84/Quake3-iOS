@@ -24,13 +24,13 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include "../qcommon/qcommon.h"
 
 #ifndef DEDICATED
-#ifndef IOS
+//#ifndef IOS
 #ifdef USE_LOCAL_HEADERS
 #	include "SDL_version.h"
 #else
 #	include <SDL_version.h>
 #endif
-#endif
+//#endif
 
 // Require a minimum version of SDL
 #define MINSDL_MAJOR 2

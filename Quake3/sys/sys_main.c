@@ -32,7 +32,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include <errno.h>
 
 #ifndef DEDICATED
-#ifndef IOS
+//#ifndef IOS
 #ifdef USE_LOCAL_HEADERS
 #	include "SDL.h"
 #	include "SDL_cpuinfo.h"
@@ -40,7 +40,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #	include <SDL.h>
 #	include <SDL_cpuinfo.h>
 #endif
-#endif
+//#endif
 #endif
 
 #include "sys_local.h"
@@ -115,13 +115,13 @@ Restart the input subsystem
 void Sys_In_Restart_f( void )
 {
 #ifndef DEDICATED
-#ifndef IOS
+//#ifndef IOS
 	if( !SDL_WasInit( SDL_INIT_VIDEO ) )
 	{
 		Com_Printf( "in_restart: Cannot restart input while video is shutdown\n" );
 		return;
 	}
-#endif
+//#endif
 #endif
 
 	IN_Restart( );
@@ -148,8 +148,8 @@ char *Sys_GetClipboardData(void)
 {
 #ifdef DEDICATED
     return NULL;
-#elif IOS
-    return NULL;
+//#elif IOS
+//    return NULL;
 #else
 	char *data = NULL;
 	char *cliptext;
@@ -183,12 +183,12 @@ Sys_PIDFileName
 */
 static char *Sys_PIDFileName( const char *gamedir )
 {
-#ifndef IOS
+//#ifndef IOS
 	const char *homePath = Cvar_VariableString( "fs_homepath" );
 
 	if( *homePath != '\0' )
 		return va( "%s/%s/%s", homePath, gamedir, PID_FILENAME );
-#endif
+//#endif
 	return NULL;
 }
 
@@ -292,9 +292,9 @@ static __attribute__ ((noreturn)) void Sys_Exit( int exitCode )
 	CON_Shutdown( );
 
 #ifndef DEDICATED
-#ifndef IOS
+//#ifndef IOS
 	SDL_Quit( );
-#endif
+//#endif
 #endif
 
 	if( exitCode < 2 && com_fullyInitialized )
@@ -330,14 +330,14 @@ cpuFeatures_t Sys_GetProcessorFeatures( void )
 	cpuFeatures_t features = 0;
 
 #ifndef DEDICATED
-#ifndef IOS
+//#ifndef IOS
 	if( SDL_HasRDTSC( ) )      features |= CF_RDTSC;
 	if( SDL_Has3DNow( ) )      features |= CF_3DNOW;
 	if( SDL_HasMMX( ) )        features |= CF_MMX;
 	if( SDL_HasSSE( ) )        features |= CF_SSE;
 	if( SDL_HasSSE2( ) )       features |= CF_SSE2;
 	if( SDL_HasAltiVec( ) )    features |= CF_ALTIVEC;
-#endif
+//#endif
 #endif
 
 	return features;
@@ -499,7 +499,7 @@ Sys_UnloadDll
 */
 void Sys_UnloadDll( void *dllHandle )
 {
-#ifndef IOS
+//#ifndef IOS
 	if( !dllHandle )
 	{
 		Com_Printf("Sys_UnloadDll(NULL)\n");
@@ -507,7 +507,7 @@ void Sys_UnloadDll( void *dllHandle )
 	}
 
 	Sys_UnloadLibrary(dllHandle);
-#endif
+//#endif
 }
 
 /*
@@ -754,7 +754,7 @@ int main( int argc, char **argv )
     
 #endif
 
-#if !defined(DEDICATED) && !defined(IOS)
+#if !defined(DEDICATED) //&& !defined(IOS)
 	// SDL version check
 
 	// Compile time
